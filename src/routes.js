@@ -33,9 +33,9 @@ const Routes= (props) => {
           <Switch>
             <Route path="/" exact component={Home} />            
             <Route path="/SignUp" component={SignUp} />
-            <PrivateRoute path="/Dashboard" component={Dashboard} user={props.user} />
+            <PrivateRoute path="/Dashboard" component={Dashboard}/>
             <PrivateRoute path="/external-api" component={ExternalApi} />
-            <PrivateRoute path="/" component={Dashboard}/>
+            <PrivateRoute exact path="/" component={Dashboard}/>
           <PrivateRoute exact path="/Prep" component={Prep} />
           <PrivateRoute exact path="/Take" component={Take} />
           <Route exact path="/Add" component={Add} />
