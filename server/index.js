@@ -3,6 +3,7 @@ const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 const morgan = require("morgan");
 const { join } = require("path");
+// const routes = require("./server/routes");
 
 // Create a new Express app
 const app = express();
@@ -28,6 +29,9 @@ const checkJwt = jwt({
   issuer: `https://${authConfig.domain}/`,
   algorithm: ["RS256"]
 });
+
+// Add routes, both API and view
+// app.use(routes);
 
 app.use(morgan("dev"));
 app.use(express.static(join(__dirname, "build")));

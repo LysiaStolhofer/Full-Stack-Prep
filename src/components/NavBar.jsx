@@ -74,13 +74,25 @@ const NavBar = () => {
                   </Button>
                 </NavItem>
               )}
+              {!isAuthenticated && (
+                <NavItem>
+                  <Button
+                    id="SignUpBtn"
+                    color="primary"
+                    className="btn-margin"
+                    onClick={() => loginWithRedirect({})}
+                  >
+                    Sign Up 
+                  </Button>
+                </NavItem>
+              )}
               {isAuthenticated && (
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret id="profileDropDown">
+                  <DropdownToggle nav caret id="DashboardDropDown">
                     <img
                       src={user.picture}
-                      alt="Profile"
-                      className="nav-user-profile rounded-circle"
+                      alt="Dashboard"
+                      className="nav-user-Dashboard rounded-circle"
                       width="50"
                     />
                   </DropdownToggle>
@@ -88,11 +100,11 @@ const NavBar = () => {
                     <DropdownItem header>{user.name}</DropdownItem>
                     <DropdownItem
                       tag={RouterNavLink}
-                      to="/profile"
-                      className="dropdown-profile"
+                      to="/Dashboard"
+                      className="dropdown-Dashboard"
                       activeClassName="router-link-exact-active"
                     >
-                      <FontAwesomeIcon icon="user" className="mr-3" /> Profile
+                      <FontAwesomeIcon icon="user" className="mr-3" /> Dashboard
                     </DropdownItem>
                     <DropdownItem
                       id="qsLogoutBtn"
@@ -129,8 +141,8 @@ const NavBar = () => {
                   <span className="user-info">
                     <img
                       src={user.picture}
-                      alt="Profile"
-                      className="nav-user-profile d-inline-block rounded-circle mr-3"
+                      alt="Dashboard"
+                      className="nav-user-Dashboard d-inline-block rounded-circle mr-3"
                       width="50"
                     />
                     <h6 className="d-inline-block">{user.name}</h6>
@@ -139,10 +151,10 @@ const NavBar = () => {
                 <NavItem>
                   <FontAwesomeIcon icon="user" className="mr-3" />
                   <RouterNavLink
-                    to="/profile"
+                    to="/Dashboard"
                     activeClassName="router-link-exact-active"
                   >
-                    Profile
+                    Dashboard
                   </RouterNavLink>
                 </NavItem>
                 <NavItem>
