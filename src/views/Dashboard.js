@@ -8,14 +8,13 @@ import Take from "./Take";
 import Prep from "./Prep";
 import Add  from "./Add";
 
-const Dashboard = (props) => {
-  const user = (props.user);
-  const loading =(false); 
+const Dashboard = () => {
+  const { loading, user } = useAuth0();
 
   if (loading || !user) {
     return <Loading />;
   }
-  console.log(user); 
+  console.log(user)
 
   return (
     <Container className="mb-5">
