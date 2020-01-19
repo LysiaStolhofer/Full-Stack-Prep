@@ -1,7 +1,7 @@
 import React from "react";
 // import { Container, Row, Col } from "reactstrap";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Dashboard  from "./Dashboard";
+import Home  from "./Home";
 
 const Take = () => {
   return (
@@ -10,13 +10,13 @@ const Take = () => {
       <div>
         <ul>
           <li>
-            <Link to="/Dashboard">Done - back to Dashboard</Link>
+            <Link to="/">Done - back to Dashboard</Link>
           </li>
         </ul>
 
         <hr />
 
-        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/" component={Home} />
       </div>
     </Router>
   );

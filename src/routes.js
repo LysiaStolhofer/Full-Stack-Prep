@@ -1,17 +1,17 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import { Container } from "reactstrap";
+import Landing from "./components/Landing";
 
-// import needed Components 
+// import needed Components
 import { NavBar, Footer, Loading, PrivateRoute } from "./components";
 
 // import needed pages (views)
 import Home from "./views/Home";
-import Dashboard from "./views/Dashboard";
 import ExternalApi from "./views/ExternalApi";
 import SignUp from "./views/SignUp";
 
-// import authorization 
+// import authorization
 import { useAuth0 } from "./react-auth0-spa";
 import history from "./utils/history";
 
@@ -25,22 +25,24 @@ import Take from "./views/Take";
 import Prep from "./views/Prep";
 initFontAwesome();
 
-const Routes= (props) => {
-
+const Routes = props => {
   return (
-
- 
-          <Switch>
-            <Route path="/" exact component={Home} />            
-            <Route path="/SignUp" component={SignUp} />
-            <PrivateRoute path="/Dashboard" component={Dashboard}/>
-            <PrivateRoute path="/external-api" component={ExternalApi} />
-            <PrivateRoute exact path="/" component={Dashboard}/>
+    <Switch>
+      {props.user && props.user ? (
+        <Switch>
+          <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/Prep" component={Prep} />
           <PrivateRoute exact path="/Take" component={Take} />
           <Route exact path="/Add" component={Add} />
-          </Switch>
-
+        </Switch>
+      ) : (
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route path="/SignUp" component={SignUp} />
+          <PrivateRoute path="/external-api" component={ExternalApi} />
+        </Switch>
+      )}
+    </Switch>
   );
 };
 

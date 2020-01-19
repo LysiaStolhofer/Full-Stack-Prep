@@ -6,10 +6,6 @@ import { Container } from "reactstrap";
 import { NavBar, Footer, Loading, PrivateRoute } from "./components";
 
 // import needed pages (views)
-import Home from "./views/Home";
-import Dashboard from "./views/Dashboard";
-import ExternalApi from "./views/ExternalApi";
-import SignUp from "./views/SignUp";
 import Routes from "./routes";
 
 // import authorization 
@@ -28,9 +24,6 @@ const App = () => {
   const { loading, user } = useAuth0();
   console.log(loading)
 
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <Router history={history}>
