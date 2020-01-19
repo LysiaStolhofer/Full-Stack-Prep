@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { withRouter } from 'react-router-dom';
 
 import {
   Collapse,
@@ -20,7 +21,7 @@ import {
 
 import { useAuth0 } from "../react-auth0-spa";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const toggle = () => setIsOpen(!isOpen);
@@ -45,7 +46,7 @@ const NavBar = () => {
                   exact
                   activeClassName="router-link-exact-active"
                 >
-                  Home
+                  Personal Page
                 </NavLink>
               </NavItem>
               {isAuthenticated && (
@@ -80,7 +81,7 @@ const NavBar = () => {
                     id="SignUpBtn"
                     color="primary"
                     className="btn-margin"
-                    onClick={() => loginWithRedirect({})}
+                    onClick={() => props.history.push('/SignUp')}
                   >
                     Sign Up 
                   </Button>
@@ -88,24 +89,16 @@ const NavBar = () => {
               )}
               {isAuthenticated && (
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret id="DashboardDropDown">
+                  <DropdownToggle nav caret id="HomeDropDown">
                     <img
-                      src={user.picture}
-                      alt="Dashboard"
-                      className="nav-user-Dashboard rounded-circle"
+                      src={user&&user.picture}
+                      alt="Home"
+                      className="nav-user-Home rounded-circle"
                       width="50"
                     />
                   </DropdownToggle>
                   <DropdownMenu>
-                    <DropdownItem header>{user.name}</DropdownItem>
-                    <DropdownItem
-                      tag={RouterNavLink}
-                      to="/Dashboard"
-                      className="dropdown-Dashboard"
-                      activeClassName="router-link-exact-active"
-                    >
-                      <FontAwesomeIcon icon="user" className="mr-3" /> Dashboard
-                    </DropdownItem>
+                    <DropdownItem header>{user&&user.name}</DropdownItem>
                     <DropdownItem
                       id="qsLogoutBtn"
                       onClick={() => logoutWithRedirect()}
@@ -140,21 +133,21 @@ const NavBar = () => {
                 <NavItem>
                   <span className="user-info">
                     <img
-                      src={user.picture}
-                      alt="Dashboard"
-                      className="nav-user-Dashboard d-inline-block rounded-circle mr-3"
+                      src={user && user.picture}
+                      alt="Home"
+                      className="nav-user-Home d-inline-block rounded-circle mr-3"
                       width="50"
                     />
-                    <h6 className="d-inline-block">{user.name}</h6>
+                    <h6 className="d-inline-block">{user&&user.name}</h6>
                   </span>
                 </NavItem>
                 <NavItem>
                   <FontAwesomeIcon icon="user" className="mr-3" />
                   <RouterNavLink
-                    to="/Dashboard"
+                    to="/Home"
                     activeClassName="router-link-exact-active"
                   >
-                    Dashboard
+                    Home
                   </RouterNavLink>
                 </NavItem>
                 <NavItem>
@@ -185,4 +178,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
