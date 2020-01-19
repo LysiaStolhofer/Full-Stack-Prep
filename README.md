@@ -3,8 +3,8 @@
 This sample demonstrates:
 
 - Logging in to Auth0 using Redirect Mode
-- Accessing Dashboard information that has been provided in the ID token
-- Gated content. The `/Dashboard` route is not accessible without having first logged in
+- Accessing Home information that has been provided in the ID token
+- Gated content. The `/Home` route is not accessible without having first logged in
 
 ## Project setup
 
@@ -68,7 +68,7 @@ Auth0 helps you to:
 - Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
 - Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
 - Analytics of how, when and where users are logging in.
-- Pull data from other sources and add it to the user Dashboard, through [JavaScript rules](https://docs.auth0.com/rules).
+- Pull data from other sources and add it to the user Home, through [JavaScript rules](https://docs.auth0.com/rules).
 
 ## Create a Free Auth0 Account
 
