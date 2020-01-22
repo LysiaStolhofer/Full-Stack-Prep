@@ -1,6 +1,6 @@
 import React from "react";
 import Form from 'react-bootstrap/Form';
-import QuestionCard from '../components/Card';
+import QuestionCard from '../components/QuestionCard';
 import { Container, Row, Col, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import Home from "./Home";
