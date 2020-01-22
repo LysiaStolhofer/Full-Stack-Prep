@@ -13,7 +13,10 @@ import { useAuth0 } from "./react-auth0-spa";
 import history from "./utils/history";
 
 // styles
-import "./App.css";
+import "./assets/css/App.css";
+
+// React-Bootstrap Stylesheet
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // fontawesome
 import initFontAwesome from "./utils/initFontAwesome";

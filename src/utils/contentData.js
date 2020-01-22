@@ -18,7 +18,7 @@ const contentData = [
       "Auth0 can detect anomalies and stop malicious attempts to access your application. Anomaly detection can alert you and your users of suspicious activity, as well as block further login attempts."
   },
   {
-    title: "Learn About Rules",
+    title: "Learn About Rules, Yougin",
     link: "https://auth0.com/docs/rules",
     description:
       "Rules are JavaScript functions that execute when a user authenticates to your application. They run once the authentication process is complete, and you can use them to customize and extend Auth0's capabilities."

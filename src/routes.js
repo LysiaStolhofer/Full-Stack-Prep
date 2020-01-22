@@ -10,13 +10,14 @@ import { NavBar, Footer, Loading, PrivateRoute } from "./components";
 import Home from "./views/Home";
 import ExternalApi from "./views/ExternalApi";
 import SignUp from "./views/SignUp";
+import Sandbox from "./views/Sandbox";
 
 // import authorization
 import { useAuth0 } from "./react-auth0-spa";
 import history from "./utils/history";
 
 // styles
-import "./App.css";
+import "./assets/css/App.css";
 
 // fontawesome
 import initFontAwesome from "./utils/initFontAwesome";
@@ -33,15 +34,17 @@ const Routes = props => {
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/Prep" component={Prep} />
           <PrivateRoute exact path="/Take" component={Take} />
-          <Route exact path="/Add" component={Add} />
-        </Switch>
-      ) : (
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route path="/SignUp" component={SignUp} />
+          <PrivateRoute exact path="/Add" component={Add} />
+          <PrivateRoute exact path="/Sandbox" component={Sandbox} />
           <PrivateRoute path="/external-api" component={ExternalApi} />
         </Switch>
-      )}
+      ) : (
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/SignUp" component={SignUp} />
+
+          </Switch>
+        )}
     </Switch>
   );
 };
