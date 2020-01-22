@@ -1,11 +1,10 @@
 import React from "react";
-// import { Container, Row, Col } from "reactstrap";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Home  from "./Home";
+import { BrowserRouter as Route, Link } from "react-router-dom";
+import Home from "./Home";
 
 const Take = () => {
   return (
-    <Router>
+    <React.Fragment>
       <div>Take mock interview</div>
       <div>
         <ul>
@@ -13,12 +12,9 @@ const Take = () => {
             <Link to="/">Done - back to Dashboard</Link>
           </li>
         </ul>
-
-        <hr />
-
         <Route exact path="/" component={Home} />
       </div>
-    </Router>
+    </React.Fragment>
   );
 };
 
