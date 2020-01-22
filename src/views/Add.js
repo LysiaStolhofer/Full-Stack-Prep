@@ -1,8 +1,7 @@
 import React from "react";
-import Form from 'react-bootstrap/Form';
-import { Container, Row, Col, Button } from "reactstrap";
+import Form from "react-bootstrap/Form";
+import { Col, Button } from "reactstrap";
 import { Link } from "react-router-dom";
-import Home from "./Home";
 
 const Add = () => {
   return (
@@ -66,9 +65,8 @@ const Add = () => {
 
           <Button variant="primary" type="submit">
             Submit
-  </Button>
+          </Button>
         </Form>
-
       </div>
     </React.Fragment>
   );
