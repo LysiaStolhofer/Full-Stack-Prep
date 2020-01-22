@@ -19,46 +19,54 @@ const Add = () => {
 
         <Form>
           <Form.Row>
-            <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-          </Form.Row>
-
-          <Form.Group controlId="formGridAddress1">
-            <Form.Label>Address</Form.Label>
-            <Form.Control placeholder="1234 Main St" />
-          </Form.Group>
-
-          <Form.Group controlId="formGridAddress2">
-            <Form.Label>Address 2</Form.Label>
-            <Form.Control placeholder="Apartment, studio, or floor" />
-          </Form.Group>
-
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>City</Form.Label>
-              <Form.Control />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>State</Form.Label>
+            <Form.Group as={Col} controlId="formInputTopic">
+              <Form.Label>Select Full Stack Topic</Form.Label>
               <Form.Control as="select">
-                <option>Choose...</option>
-                <option>...</option>
+                <option>Frontend Fundamentals</option>
+                <option>Javascript Fundamentals</option>
+                <option>Repository Fundamentals</option>
+                <option>Database Fundamentals</option>
+                <option>JS Server Fundamentals</option>
+                <option>Framework Fundamentals</option>
+                <option>Mixed Topics</option>
               </Form.Control>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridZip">
-              <Form.Label>Zip</Form.Label>
-              <Form.Control />
+            <Form.Group as={Col} controlId="formInputLevel">
+              <Form.Label>Select Question Difficulty</Form.Label>
+              <Form.Control as="select">
+                <option>Entry</option>
+                <option>Junior</option>
+                <option>Mid-Level</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formInputTimer">
+              <Form.Label>Time to Answer</Form.Label>
+              <Form.Control as="select">
+                <option>1 minute</option>
+                <option>2 minute</option>
+                <option>3 minute</option>
+                <option>4 minute</option>
+                <option>5 minute</option>
+              </Form.Control>
             </Form.Group>
           </Form.Row>
+
+          <Form.Group controlId="formInputQuestion">
+            <Form.Label>Add the Question You want to add to Full Stack Prep</Form.Label>
+            <Form.Control as="textarea" rows="4" />
+          </Form.Group>
+
+          <Form.Group controlId="formInputAnswer">
+            <Form.Label>What is the Answer to the Question.</Form.Label>
+            <Form.Control as="textarea" rows="3" />
+          </Form.Group>
+
+          <Form.Group controlId="formInputCode">
+            <Form.Label>If your Question has any code, Enter it here</Form.Label>
+            <Form.Control as="textarea" rows="3" />
+          </Form.Group>
 
           <Form.Group id="formGridCheckbox">
             <Form.Check type="checkbox" label="Check me out" />
