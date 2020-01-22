@@ -1,15 +1,9 @@
-import React, { Fragment } from "react";
-import Hero from "../components/Hero";
-import Content from "../components/Content";
-
+import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Highlight from "../components/Highlight";
 import Loading from "../components/Loading";
 import { useAuth0 } from "../react-auth0-spa";
-// import Take from "./Take";
-// import Prep from "./Prep";
-// import Add  from "./Add";
 
 const Home = () => {
   const { loading, user } = useAuth0();
@@ -37,9 +31,6 @@ const Home = () => {
       <Row>
         <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
       </Row>
-
-    
-
       <div>Home-Page</div>
       <div>
         <ul>
@@ -52,22 +43,10 @@ const Home = () => {
           <li>
             <Link to="/Add">Add an interview question</Link>
           </li>
-        </ul>
-
-        <hr />
-
-        
+        </ul>     
       </div>
-
-      <Fragment>
-    <Hero />
-    <hr />
-    <Content />
-  </Fragment>
+      </Container>
 );
-</Container>
-
-  );
 };
 
 export default Home;
