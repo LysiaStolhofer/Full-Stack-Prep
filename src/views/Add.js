@@ -63,7 +63,7 @@ const Add = () => {
           </Form.Group>
 
           <Form.Group controlId="formInputCode">
-            <Form.Label>If your Question has any code, Enter it here</Form.Label>
+            <Form.Label>If your Question has any code, Enter it here (Seperate it by Enter Key)</Form.Label>
             <Form.Control as="textarea" rows="3" />
           </Form.Group>
 
