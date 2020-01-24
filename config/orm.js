@@ -43,7 +43,7 @@ const orm = {
         return connection.end();
     },
 
-    insertNew: async function ({ table, cols, vals }) {
+    insertNew: async function ({ table, cols, vals }, cb) {
         try {
 
             let queryString = 'INSERT INTO ' + table;
@@ -56,33 +56,33 @@ const orm = {
 
             const result = await connection.query(
                 queryString,
-                table,
+                vals,
             );
-            return result;
+            return cb(result);
         } catch (error) {
-            return error;
+            return cb(error);
         }
     },
 
-    selectAll: async function ({ tableName }) {
+    selectAll: async function ({ table }, cb) {
         try {
             const queryString = 'SELECT * FROM ??';
             const result = await connection.query(
                 queryString,
-                tableName,
+                table,
             );
-            return result;
+            return cb(result);
         } catch (error) {
-            return error;
+            return cb(error);
         }
     },
 
-    selectWhere: async function ({ tableName, colName, whereVal }) {
+    selectWhere: async function ({ table, cols, vals }, cb) {
         try {
             const queryString = 'SELECT * FROM ?? WHERE ?? = ?';
             const result = await connection.query(
                 queryString,
-                [tableName, colName, whereVal],
+                [table, cols, vals],
             );
             return result;
         } catch (error) {
