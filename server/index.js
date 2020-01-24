@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const express = require("express");
-const mysql = require('promise-mysql');
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 const morgan = require("morgan");
@@ -11,6 +10,11 @@ const { join } = require("path");
 // Create a new Express app
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Parse request body as JSON
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Set up Auth0 configuration
 const authConfig = {
   domain: "dev-cvga9dac.auth0.com",
@@ -33,11 +37,11 @@ const checkJwt = jwt({
 });
 
 // Add routes, both API and view
-// app.use(routes);
+const routes = require('./controllers/interviewControler');
+app.use(routes);
 
 app.use(morgan("dev"));
 app.use(express.static(join(__dirname, "build")));
-
 
 // Define an endpoint that must be called with an access token
 app.get("/api/external", checkJwt, (req, res) => {
@@ -48,20 +52,16 @@ app.get("/api/external", checkJwt, (req, res) => {
   });
 });
 
-// Global variable that will hold DB connection
-let connection;
-
 // Start the App & API server
 app.listen(PORT, async function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 
   try {
-    connection = await mysql.createConnection(require('../config/db-config'));
+    require("../config/orm").connectDb();
   } catch (error) {
     console.log('ERROR: DB CONNECTION FAILED');
     console.table(error);
     process.exit(1);
   }
   console.log('DATABASE CONNECTION ESTABLISHED');
-  console.table(connection.config);
 });
