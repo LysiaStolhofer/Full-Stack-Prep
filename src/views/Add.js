@@ -74,6 +74,9 @@ const Add = () => {
           <Button variant="primary" type="submit">
             Submit
           </Button>
+          <Button variant="primary" type="submit">
+            Return to Dashboard
+          </Button>
         </Form>
       </div>
     </React.Fragment>

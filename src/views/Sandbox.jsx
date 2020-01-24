@@ -1,11 +1,8 @@
-import React from "react";
-import Form from 'react-bootstrap/Form';
+import React from 'react';
 import QuestionCard from '../components/QuestionCard';
-import { Container, Row, Col, Button } from "reactstrap";
-import { Link } from "react-router-dom";
-import Home from "./Home";
+import { Link } from 'react-router-dom';
 
-const Add = () => {
+const Sandbox = () => {
     return (
         <React.Fragment>
             <div>Add an interview question</div>
@@ -22,4 +19,4 @@ const Add = () => {
     );
 };
 
-export default Add;
+export default Sandbox;
