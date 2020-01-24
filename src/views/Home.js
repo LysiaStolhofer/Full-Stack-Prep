@@ -9,7 +9,7 @@ const Home = () => {
   const { loading, user } = useAuth0();
 
   if (loading || !user) {
-    return <Loading />;
+    return <Loading />
   }
   console.log(user)
 
