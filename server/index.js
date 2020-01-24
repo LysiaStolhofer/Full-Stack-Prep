@@ -51,6 +51,10 @@ app.get("/api/external", checkJwt, (req, res) => {
 // Global variable that will hold DB connection
 let connection;
 
+app.get('*', function(req, res) {
+  res.redirect('/');
+});
+
 // Start the App & API server
 app.listen(PORT, async function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
