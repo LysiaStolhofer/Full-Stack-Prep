@@ -1,0 +1,5 @@
+DB_PASSWORD=mIamthe076!l
+DB_USER=root
+DB_NAME=full_stack_prep_db
+DB_HOST=localhost
+DB_PORT=3306
