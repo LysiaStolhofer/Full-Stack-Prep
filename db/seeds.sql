@@ -1,7 +1,7 @@
 --Topic Levels
 INSERT INTO levels (topic_level, topic_description) VALUES (1, "Entry");
 INSERT INTO levels (topic_level, topic_description) VALUES (2, "Junoir");
-INSERT INTO levels (topic_level, topic_description) VALUES (3, "Middle");
+INSERT INTO levels (topic_level, topic_description) VALUES (3, "Mid Level");
 
 --Topics
 INSERT INTO topics (topic) VALUES ("Frontend-Fundamentals (HTML, CSS, Bootstrap)");
