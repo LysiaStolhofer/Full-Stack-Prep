@@ -8,12 +8,6 @@ const Add = () => {
     <React.Fragment>
       <div>Add an interview question</div>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Done - back to Dashboard</Link>
-          </li>
-        </ul>
-
         <hr />
 
         <Form>
@@ -53,7 +47,9 @@ const Add = () => {
           </Form.Row>
 
           <Form.Group controlId="formInputQuestion">
-            <Form.Label>Add the Question You want to add to Full Stack Prep</Form.Label>
+            <Form.Label>
+              Add the Question You want to add to Full Stack Prep
+            </Form.Label>
             <Form.Control as="textarea" rows="4" />
           </Form.Group>
 
@@ -63,7 +59,9 @@ const Add = () => {
           </Form.Group>
 
           <Form.Group controlId="formInputCode">
-            <Form.Label>If your Question has any code, Enter it here</Form.Label>
+            <Form.Label>
+              If your Question has any code, Enter it here
+            </Form.Label>
             <Form.Control as="textarea" rows="3" />
           </Form.Group>
 
@@ -74,9 +72,9 @@ const Add = () => {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-          <Button variant="primary" type="submit">
-            Return to Dashboard
-          </Button>
+          <Link to="/" className="btn btn-primary">
+            Back to Dashboard
+          </Link>
         </Form>
       </div>
     </React.Fragment>

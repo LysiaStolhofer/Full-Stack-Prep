@@ -7,11 +7,9 @@ const Prep = () => {
     <React.Fragment>
       <div>Prep for an interview</div>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Done - back to Dashboard</Link>
-          </li>
-        </ul>
+        <Link to="/" className="btn btn-primary">
+          Back to Dashboard
+        </Link>
         <Route exact path="/" component={Home} />
       </div>
     </React.Fragment>

@@ -31,19 +31,14 @@ const Home = () => {
       <Row>
         <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
       </Row>
-      <div>Home-Page</div>
       <div>
-        <ul>
-          <li>  
-            <Link to="/Prep">Prep for inteview</Link>
-          </li>
-          <li>
-            <Link to="/Take">Take a mock interview</Link>
-          </li>
-          <li>
-            <Link to="/Add">Add an interview question</Link>
-          </li>
-        </ul>     
+          <Link to="/Prep" className="btn btn-primary">
+          Prep for inteview
+        </Link><Link to="/Take" className="btn btn-primary">
+        Take a mock interview
+        </Link><Link to="/Add" className="btn btn-primary">
+        Add an interview question
+        </Link> 
       </div>
       </Container>
 );
