@@ -1,11 +1,17 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => (
   <footer className="bg-light p-3 text-center">
-    <div className="logo" />
+    <img
+      src="/logo192.png"
+      alt="logo"
+      style={{ height: "50px" }}
+    />
     <p>
-      Sample project provided by <a href="https://auth0.com">Auth0</a>
-    </p>
+      Copyright <FontAwesomeIcon icon={faCopyright} /> 2020 Team FSP
+        </p>
   </footer>
 );
 
