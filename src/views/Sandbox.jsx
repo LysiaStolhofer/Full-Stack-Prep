@@ -1,8 +1,18 @@
 import React from 'react';
-import QuestionCard from '../components/QuestionCard';
 import { Link } from 'react-router-dom';
+import UserChart from '../components/UserChart';
+import Loading from "../components/Loading";
+import { useAuth0 } from "../react-auth0-spa";
 
 const Sandbox = () => {
+
+    const { loading, user } = useAuth0();
+
+    if (loading || !user) {
+        return <Loading />
+    }
+    console.log(user)
+
     return (
         <React.Fragment>
             <div>Add an interview question</div>
@@ -13,7 +23,7 @@ const Sandbox = () => {
                     </li>
                 </ul>
                 <hr />
-                <QuestionCard />
+                <UserChart />
             </div>
         </React.Fragment>
     );

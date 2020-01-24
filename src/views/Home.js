@@ -15,6 +15,7 @@ const Home = () => {
 
   return (
     <Container className="mb-5">
+
       <Row className="align-items-center Home-header mb-5 text-center text-md-left">
         <Col md={2}>
           <img
@@ -24,7 +25,7 @@ const Home = () => {
           />
         </Col>
         <Col md>
-          <h2>{user &&user.name}</h2>
+          <h2>{user && user.name}</h2>
           <p className="lead text-muted">{user && user.email}</p>
         </Col>
       </Row>
@@ -34,7 +35,7 @@ const Home = () => {
       <div>Home-Page</div>
       <div>
         <ul>
-          <li>  
+          <li>
             <Link to="/Prep">Prep for inteview</Link>
           </li>
           <li>
@@ -43,10 +44,10 @@ const Home = () => {
           <li>
             <Link to="/Add">Add an interview question</Link>
           </li>
-        </ul>     
+        </ul>
       </div>
-      </Container>
-);
+    </Container>
+  );
 };
 
 export default Home;
