@@ -1,4 +1,7 @@
+require('dotenv').config();
+
 const express = require("express");
+const mysql = require('promise-mysql');
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 const morgan = require("morgan");
@@ -8,7 +11,6 @@ const { join } = require("path");
 // Create a new Express app
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 // Set up Auth0 configuration
 const authConfig = {
   domain: "dev-cvga9dac.auth0.com",
@@ -46,7 +48,20 @@ app.get("/api/external", checkJwt, (req, res) => {
   });
 });
 
+// Global variable that will hold DB connection
+let connection;
+
 // Start the App & API server
-app.listen(PORT, function () {
+app.listen(PORT, async function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+
+  try {
+    connection = await mysql.createConnection(require('../config/db-config'));
+  } catch (error) {
+    console.log('ERROR: DB CONNECTION FAILED');
+    console.table(error);
+    process.exit(1);
+  }
+  console.log('DATABASE CONNECTION ESTABLISHED');
+  console.table(connection.config);
 });
