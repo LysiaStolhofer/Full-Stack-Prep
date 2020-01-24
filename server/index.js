@@ -41,6 +41,11 @@ app.use(express.static(join(__dirname, "build")));
 app.get("/api/external", checkJwt, (req, res) => {
   console.log(req);
 
+  // app.get('*', function(req, res) {
+  //   res.redirect('/');
+  // });
+  
+
   res.send({
     msg: "Your Access Token was successfully validated!"
   });
