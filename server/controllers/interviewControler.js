@@ -5,17 +5,14 @@ const router = express.Router();
 const interview = require('../../models/interview');
 
 // Create all our routes and set up logic within those routes where required.
-router.get('/api/db', function (req, res) {
+router.get('/api/allQuestions', function (req, res) {
     interview.selectAll(
-        {
-            table: req.body.table
-        },
         function (result) {
             res.json({ result });
         });
 });
 
-router.get('/api/questions', function (req, res) {
+router.get('/api/levelQuestions', function (req, res) {
     interview.selectQuestions(
         {
             topic: req.body.topic,
@@ -25,6 +22,48 @@ router.get('/api/questions', function (req, res) {
             res.json({ result });
         });
 });
+
+router.get('/api/selectUserprogress', function (req, res) {
+    interview.selectUserprogress(
+        {
+            email: req.body.email
+        },
+        function (result) {
+            res.json({ result });
+        });
+});
+
+router.post('/api/updateUserProgress', function (req, res) {
+    interview.updateUserprogress(
+        {
+            user: req.body.user,
+            topic: req.body.topic
+        },
+        function (result) {
+            // Send back the ID of the new quote
+            res.json({ rowsChanged: result.changedRows });
+        });
+});
+
+router.post('/api/createUser', function (req, res) {
+    interview.createNewUser(
+        {
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            picture: req.body.picture
+        },
+        function (result) {
+            // Send back the ID of the new quote
+            res.json({ id: result.insertId });
+        });
+});
+
+
+
+
+
+
 
 router.post('/api/db', function (req, res) {
     interview.insertNew(
@@ -39,17 +78,7 @@ router.post('/api/db', function (req, res) {
         });
 });
 
-router.post('/api/updateUserprogress', function (req, res) {
-    interview.updateUserprogress(
-        {
-            user: req.body.user,
-            topic: req.body.topic
-        },
-        function (result) {
-            // Send back the ID of the new quote
-            res.json({ rowsChanged: result.changedRows });
-        });
-});
+
 
 // Export routes for server.js to use.
 module.exports = router;

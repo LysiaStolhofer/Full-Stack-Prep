@@ -66,10 +66,9 @@ const orm = {
 
     selectAll: async function ({ table }, cb) {
         try {
-            const queryString = 'SELECT * FROM ??';
+            const queryString = 'SELECT * FROM questions';
             const result = await connection.query(
                 queryString,
-                table,
             );
             return cb(result);
         } catch (error) {
@@ -87,6 +86,57 @@ const orm = {
             const result = await connection.query(
                 queryString,
             );
+            return cb(result);
+        } catch (error) {
+            return cb(error);
+        }
+    },
+
+    createNewUser: async function ({ firstname, lastname, email, picture }, cb) {
+        try {
+            let queryString = 'INSERT INTO users ';
+            queryString += '(first_name, last_name, email, picture) ';
+            queryString += 'VALUES (';
+            queryString += '"' + firstname.toString() + '", ';
+            queryString += '"' + lastname.toString() + '", ';
+            queryString += '"' + email.toString() + '", ';
+            queryString += '"' + picture.toString() + '")';
+
+            const result = await connection.query(
+                queryString,
+            );
+
+            const newUserID = result.insertId;
+
+            queryString = 'INSERT INTO userprogress ';
+            queryString += '(user_id, topic_id, level_id, topic_mastered) VALUES ';
+            queryString += '(' + newUserID + ', 1, 1, false),';
+            queryString += '(' + newUserID + ', 1, 2, false),';
+            queryString += '(' + newUserID + ', 1, 3, false),';
+            queryString += '(' + newUserID + ', 2, 1, false),';
+            queryString += '(' + newUserID + ', 2, 2, false),';
+            queryString += '(' + newUserID + ', 2, 3, false),';
+            queryString += '(' + newUserID + ', 3, 1, false),';
+            queryString += '(' + newUserID + ', 3, 2, false),';
+            queryString += '(' + newUserID + ', 3, 3, false),';
+            queryString += '(' + newUserID + ', 4, 1, false),';
+            queryString += '(' + newUserID + ', 4, 2, false),';
+            queryString += '(' + newUserID + ', 4, 3, false),';
+            queryString += '(' + newUserID + ', 5, 1, false),';
+            queryString += '(' + newUserID + ', 5, 2, false),';
+            queryString += '(' + newUserID + ', 5, 3, false),';
+            queryString += '(' + newUserID + ', 6, 1, false),';
+            queryString += '(' + newUserID + ', 6, 2, false),';
+            queryString += '(' + newUserID + ', 6, 3, false)';
+
+            console.log(queryString);
+
+            const progress = await connection.query(
+                queryString,
+            );
+
+            console.log('User progress rows inserted: ' + progress.affectedRows);
+
             return cb(result);
         } catch (error) {
             return cb(error);
@@ -111,19 +161,25 @@ const orm = {
         }
     },
 
-    selectWhere: async function ({ table, cols, vals }, cb) {
+    selectUserprogress: async function ({ email }, cb) {
         try {
-            const queryString = 'SELECT * FROM ?? WHERE ?? = ?';
+            let queryString = 'SELECT topic_id, level_id, topic_mastered ';
+            queryString += 'FROM userprogress ';
+            queryString += 'WHERE user_id IN ';
+            queryString += '(SELECT id FROM users WHERE email = ';
+            queryString += '"' + email.toString();
+            queryString += '")';
+
+            console.log(queryString);
+
             const result = await connection.query(
                 queryString,
-                [table, cols, vals],
             );
-            return result;
+            return cb(result);
         } catch (error) {
-            return error;
+            return cb(error);
         }
     },
-
 };
 
 module.exports = orm;
