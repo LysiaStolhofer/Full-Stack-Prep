@@ -15,6 +15,17 @@ router.get('/api/db', function (req, res) {
         });
 });
 
+router.get('/api/questions', function (req, res) {
+    interview.selectQuestions(
+        {
+            topic: req.body.topic,
+            level: req.body.level
+        },
+        function (result) {
+            res.json({ result });
+        });
+});
+
 router.post('/api/db', function (req, res) {
     interview.insertNew(
         {
@@ -25,6 +36,18 @@ router.post('/api/db', function (req, res) {
         function (result) {
             // Send back the ID of the new quote
             res.json({ id: result.insertId });
+        });
+});
+
+router.post('/api/updateUserprogress', function (req, res) {
+    interview.updateUserprogress(
+        {
+            user: req.body.user,
+            topic: req.body.topic
+        },
+        function (result) {
+            // Send back the ID of the new quote
+            res.json({ rowsChanged: result.changedRows });
         });
 });
 

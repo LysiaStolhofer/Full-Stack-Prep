@@ -77,6 +77,40 @@ const orm = {
         }
     },
 
+    selectQuestions: async function ({ topic, level }, cb) {
+        try {
+            let queryString = 'SELECT * ';
+            queryString += 'FROM questions ';
+            queryString += 'WHERE topic_id = ' + topic.toString();
+            queryString += ' AND level_id = ' + level.toString();
+
+            const result = await connection.query(
+                queryString,
+            );
+            return cb(result);
+        } catch (error) {
+            return cb(error);
+        }
+    },
+
+    updateUserprogress: async function ({ user, topic }, cb) {
+        try {
+            let queryString = 'UPDATE userprogress ';
+            queryString += 'SET topic_mastered = true ';
+            queryString += 'WHERE user_id = ' + user.toString();
+            queryString += ' AND topic_id = ' + topic.toString();
+
+            console.log(queryString);
+
+            const result = await connection.query(
+                queryString,
+            );
+            return cb(result);
+        } catch (error) {
+            return cb(error);
+        }
+    },
+
     selectWhere: async function ({ table, cols, vals }, cb) {
         try {
             const queryString = 'SELECT * FROM ?? WHERE ?? = ?';

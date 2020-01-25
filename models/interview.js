@@ -13,6 +13,16 @@ const interview = {
             cb(res);
         });
     },
+    selectQuestions: function (topic, level, cb) {
+        orm.selectQuestions(topic, level, function (res) {
+            cb(res);
+        });
+    },
+    updateUserprogress: function (user, topic, cb) {
+        orm.updateUserprogress(user, topic, function (res) {
+            cb(res);
+        });
+    },
     selectWhere: function (objColVals, condition, cb) {
         orm.update('users', objColVals, condition, function (res) {
             cb(res);
