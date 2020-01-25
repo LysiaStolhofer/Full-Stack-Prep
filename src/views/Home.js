@@ -18,26 +18,10 @@ const Home = () => {
     <Container className="mx-auto">
 
       <Row>
-
         <UserChart as={Col} />
         <MainBtns as={Col} />
       </Row>
-      <Row>
-      </Row>
-      <div>Home-Page</div>
-      <div>
-        <ul>
-          <li>
-            <Link to="/Prep">Prep for inteview</Link>
-          </li>
-          <li>
-            <Link to="/Take">Take a mock interview</Link>
-          </li>
-          <li>
-            <Link to="/Add">Add an interview question</Link>
-          </li>
-        </ul>
-      </div>
+
     </Container>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Row, Col, ProgressBar } from "react-bootstrap";
-import Loading from "../components/Loading";
+import Loading from "./Loading";
 import { useAuth0 } from "../react-auth0-spa";
 
 const UserStats = () => {
