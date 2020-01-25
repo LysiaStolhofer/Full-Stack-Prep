@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { withRouter } from 'react-router-dom';
+import { withRouter, useLocation } from 'react-router-dom';
 
 import {
   Collapse,
@@ -30,6 +30,9 @@ const NavBar = (props) => {
     logout({
       returnTo: window.location.origin
     });
+
+  // let location = useLocation();
+  // if (location.pathname === "/") return null;
 
   return (
     <div className="nav-container">

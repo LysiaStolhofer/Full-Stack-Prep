@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Loading from "../components/Loading";
-import MainBtns from '../components/MainBtns';
-import Highlight from '../components/Highlight';
+import { Loading, Highlight, MainBtns, QuestionCard } from "../components";
 import { useAuth0 } from "../react-auth0-spa";
 
 const Sandbox = () => {
@@ -18,6 +16,9 @@ const Sandbox = () => {
         <React.Fragment>
             <div>Add an interview question</div>
             <div>
+                <h2>Question Card</h2>
+                <QuestionCard />
+                <hr />
                 <h2>Highlight</h2>
                 <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
                 <br />
