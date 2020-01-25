@@ -49,7 +49,7 @@ const NavBar = (props) => {
                   to="/"
                   exact
                   activeClassName="router-link-exact-active">
-                  My Dashboard
+                  Dashboard
                 </NavLink>
               </NavItem>
               {isAuthenticated && (
@@ -70,7 +70,7 @@ const NavBar = (props) => {
                     to="/take"
                     exact
                     activeClassName="router-link-exact-active">
-                    Take Interview
+                    Take
                 </NavLink>
                 </NavItem>
               )}
@@ -81,7 +81,7 @@ const NavBar = (props) => {
                     to="/add"
                     exact
                     activeClassName="router-link-exact-active">
-                    Add Questions
+                    Add
                 </NavLink>
                 </NavItem>
               )}
@@ -103,7 +103,7 @@ const NavBar = (props) => {
                     to="/external-api"
                     exact
                     activeClassName="router-link-exact-active">
-                    External API
+                    API
                 </NavLink>
                 </NavItem>
               )}

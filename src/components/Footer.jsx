@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => (
-  <footer className="bg-light p-3 text-center">
+  <footer className="bg-light pt-2 text-center">
     <img
-      src="/logo192.png"
+      src="/FullStackPrep.png"
       alt="logo"
       style={{ height: "50px" }}
     />
