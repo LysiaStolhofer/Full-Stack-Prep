@@ -2,14 +2,8 @@
 const orm = require('../config/orm');
 
 const interview = {
-    selectAll: function (table, cb) {
-        orm.selectAll(table, function (res) {
-            cb(res);
-        });
-    },
-    // The variables cols and vals are arrays.
-    insertNew: function (table, cols, vals, cb) {
-        orm.insertNew(table, cols, vals, function (res) {
+    selectAll: function (cb) {
+        orm.selectAll(function (res) {
             cb(res);
         });
     },
@@ -23,8 +17,19 @@ const interview = {
             cb(res);
         });
     },
-    selectWhere: function (objColVals, condition, cb) {
-        orm.update('users', objColVals, condition, function (res) {
+    createNewUser: function (firstname, lastname, email, picture, cb) {
+        orm.createNewUser(firstname, lastname, email, picture, function (res) {
+            cb(res);
+        });
+    },
+    selectUserprogress: function (email, cb) {
+        orm.selectUserprogress(email, function (res) {
+            cb(res);
+        });
+    },
+    // The variables cols and vals are arrays.
+    insertNew: function (table, cols, vals, cb) {
+        orm.insertNew(table, cols, vals, function (res) {
             cb(res);
         });
     },
