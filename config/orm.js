@@ -43,7 +43,7 @@ const orm = {
         return connection.end();
     },
 
-    insertNew: async function ({ table, cols, vals }) {
+    insertNew: async function ({ table, cols, vals }, cb) {
         try {
 
             let queryString = 'INSERT INTO ' + table;
@@ -56,40 +56,130 @@ const orm = {
 
             const result = await connection.query(
                 queryString,
-                table,
+                vals,
             );
-            return result;
+            return cb(result);
         } catch (error) {
-            return error;
+            return cb(error);
         }
     },
 
-    selectAll: async function ({ tableName }) {
+    selectAll: async function ({ table }, cb) {
         try {
-            const queryString = 'SELECT * FROM ??';
+            const queryString = 'SELECT * FROM questions';
             const result = await connection.query(
                 queryString,
-                tableName,
             );
-            return result;
+            return cb(result);
         } catch (error) {
-            return error;
+            return cb(error);
         }
     },
 
-    selectWhere: async function ({ tableName, colName, whereVal }) {
+    selectQuestions: async function ({ topic, level }, cb) {
         try {
-            const queryString = 'SELECT * FROM ?? WHERE ?? = ?';
+            let queryString = 'SELECT * ';
+            queryString += 'FROM questions ';
+            queryString += 'WHERE topic_id = ' + topic.toString();
+            queryString += ' AND level_id = ' + level.toString();
+
             const result = await connection.query(
                 queryString,
-                [tableName, colName, whereVal],
             );
-            return result;
+            return cb(result);
         } catch (error) {
-            return error;
+            return cb(error);
         }
     },
 
+    createNewUser: async function ({ firstname, lastname, email, picture }, cb) {
+        try {
+            let queryString = 'INSERT INTO users ';
+            queryString += '(first_name, last_name, email, picture) ';
+            queryString += 'VALUES (';
+            queryString += '"' + firstname.toString() + '", ';
+            queryString += '"' + lastname.toString() + '", ';
+            queryString += '"' + email.toString() + '", ';
+            queryString += '"' + picture.toString() + '")';
+
+            const result = await connection.query(
+                queryString,
+            );
+
+            const newUserID = result.insertId;
+
+            queryString = 'INSERT INTO userprogress ';
+            queryString += '(user_id, topic_id, level_id, topic_mastered) VALUES ';
+            queryString += '(' + newUserID + ', 1, 1, false),';
+            queryString += '(' + newUserID + ', 1, 2, false),';
+            queryString += '(' + newUserID + ', 1, 3, false),';
+            queryString += '(' + newUserID + ', 2, 1, false),';
+            queryString += '(' + newUserID + ', 2, 2, false),';
+            queryString += '(' + newUserID + ', 2, 3, false),';
+            queryString += '(' + newUserID + ', 3, 1, false),';
+            queryString += '(' + newUserID + ', 3, 2, false),';
+            queryString += '(' + newUserID + ', 3, 3, false),';
+            queryString += '(' + newUserID + ', 4, 1, false),';
+            queryString += '(' + newUserID + ', 4, 2, false),';
+            queryString += '(' + newUserID + ', 4, 3, false),';
+            queryString += '(' + newUserID + ', 5, 1, false),';
+            queryString += '(' + newUserID + ', 5, 2, false),';
+            queryString += '(' + newUserID + ', 5, 3, false),';
+            queryString += '(' + newUserID + ', 6, 1, false),';
+            queryString += '(' + newUserID + ', 6, 2, false),';
+            queryString += '(' + newUserID + ', 6, 3, false)';
+
+            console.log(queryString);
+
+            const progress = await connection.query(
+                queryString,
+            );
+
+            console.log('User progress rows inserted: ' + progress.affectedRows);
+
+            return cb(result);
+        } catch (error) {
+            return cb(error);
+        }
+    },
+
+    updateUserprogress: async function ({ user, topic }, cb) {
+        try {
+            let queryString = 'UPDATE userprogress ';
+            queryString += 'SET topic_mastered = true ';
+            queryString += 'WHERE user_id = ' + user.toString();
+            queryString += ' AND topic_id = ' + topic.toString();
+
+            console.log(queryString);
+
+            const result = await connection.query(
+                queryString,
+            );
+            return cb(result);
+        } catch (error) {
+            return cb(error);
+        }
+    },
+
+    selectUserprogress: async function ({ email }, cb) {
+        try {
+            let queryString = 'SELECT topic_id, level_id, topic_mastered ';
+            queryString += 'FROM userprogress ';
+            queryString += 'WHERE user_id IN ';
+            queryString += '(SELECT id FROM users WHERE email = ';
+            queryString += '"' + email.toString();
+            queryString += '")';
+
+            console.log(queryString);
+
+            const result = await connection.query(
+                queryString,
+            );
+            return cb(result);
+        } catch (error) {
+            return cb(error);
+        }
+    },
 };
 
 module.exports = orm;

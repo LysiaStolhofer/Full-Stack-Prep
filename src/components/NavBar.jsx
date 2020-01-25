@@ -35,29 +35,78 @@ const NavBar = (props) => {
     <div className="nav-container">
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand className="logo" />
+          <img
+            src="/FullStackPrep.png"
+            alt="-full-logo"
+            style={{ height: "50px" }}
+          />
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink
-                  tag={RouterNavLink}
-                  to="/"
-                  exact
-                  activeClassName="router-link-exact-active"
-                >
-                  Personal Page
-                </NavLink>
-              </NavItem>
+
               {isAuthenticated && (
                 <NavItem>
-                <NavLink
-                  tag={RouterNavLink}
-                  to="/external-api"
-                  exact
-                  activeClassName="router-link-exact-active"
-                >
-                  External API
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/"
+                    exact
+                    activeClassName="router-link-exact-active">
+                    Dashboard
+                </NavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/prep"
+                    exact
+                    activeClassName="router-link-exact-active">
+                    Prep
+                </NavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/take"
+                    exact
+                    activeClassName="router-link-exact-active">
+                    Take
+                </NavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/add"
+                    exact
+                    activeClassName="router-link-exact-active">
+                    Add
+                </NavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/sandbox"
+                    exact
+                    activeClassName="router-link-exact-active">
+                    Sandbox
+                </NavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/external-api"
+                    exact
+                    activeClassName="router-link-exact-active">
+                    API
                 </NavLink>
                 </NavItem>
               )}
@@ -75,30 +124,18 @@ const NavBar = (props) => {
                   </Button>
                 </NavItem>
               )}
-              {!isAuthenticated && (
-                <NavItem>
-                  <Button
-                    id="SignUpBtn"
-                    color="primary"
-                    className="btn-margin"
-                    onClick={() => props.history.push('/SignUp')}
-                  >
-                    Sign Up 
-                  </Button>
-                </NavItem>
-              )}
               {isAuthenticated && (
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret id="HomeDropDown">
                     <img
-                      src={user&&user.picture}
+                      src={user && user.picture}
                       alt="Home"
                       className="nav-user-Home rounded-circle"
                       width="50"
                     />
                   </DropdownToggle>
                   <DropdownMenu>
-                    <DropdownItem header>{user&&user.name}</DropdownItem>
+                    <DropdownItem header>{user && user.name}</DropdownItem>
                     <DropdownItem
                       id="qsLogoutBtn"
                       onClick={() => logoutWithRedirect()}
@@ -138,7 +175,7 @@ const NavBar = (props) => {
                       className="nav-user-Home d-inline-block rounded-circle mr-3"
                       width="50"
                     />
-                    <h6 className="d-inline-block">{user&&user.name}</h6>
+                    <h6 className="d-inline-block">{user && user.name}</h6>
                   </span>
                 </NavItem>
                 <NavItem>

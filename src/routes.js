@@ -9,8 +9,10 @@ import { NavBar, Footer, Loading, PrivateRoute } from "./components";
 // import needed pages (views)
 import Home from "./views/Home";
 import ExternalApi from "./views/ExternalApi";
-import SignUp from "./views/SignUp";
 import Sandbox from "./views/Sandbox";
+import Add from "./views/Add";
+import Take from "./views/Take";
+import Prep from "./views/Prep";
 
 // import authorization
 import { useAuth0 } from "./react-auth0-spa";
@@ -21,9 +23,7 @@ import "./assets/css/App.css";
 
 // fontawesome
 import initFontAwesome from "./utils/initFontAwesome";
-import Add from "./views/Add";
-import Take from "./views/Take";
-import Prep from "./views/Prep";
+
 initFontAwesome();
 
 const Routes = props => {
@@ -41,8 +41,6 @@ const Routes = props => {
       ) : (
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/SignUp" component={SignUp} />
-
           </Switch>
         )}
     </Switch>

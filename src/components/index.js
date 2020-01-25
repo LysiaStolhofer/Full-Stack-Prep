@@ -7,3 +7,5 @@ export { default as PrivateRoute } from './PrivateRoute';
 export { default as NavBar } from './NavBar';
 export { default as QuestionCard } from './QuestionCard';
 export { default as UserStats } from './UserStats';
+export { default as UserChart } from './UserChart';
+export { default as MainBtns } from './MainBtns';
