@@ -36,6 +36,7 @@ CREATE TABLE questions
 	topic_id INT NOT NULL,
     question varchar(255) NOT NULL,
 	answer varchar(255) NOT NULL,
+	code varchar(2000),
     level_id INT NOT NULL,
     timer INT NOT NULL,
 	PRIMARY KEY (id),

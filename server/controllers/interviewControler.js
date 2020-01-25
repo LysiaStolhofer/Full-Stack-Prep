@@ -19,6 +19,7 @@ router.get('/api/levelQuestions', function (req, res) {
             level: req.body.level
         },
         function (result) {
+            // Send back the JSON
             res.json({ result });
         });
 });
@@ -29,6 +30,7 @@ router.get('/api/selectUserprogress', function (req, res) {
             email: req.body.email
         },
         function (result) {
+            // Send back the JSON
             res.json({ result });
         });
 });
@@ -55,6 +57,22 @@ router.post('/api/createUser', function (req, res) {
         },
         function (result) {
             // Send back the ID of the new quote
+            res.json({ result });
+        });
+});
+
+router.post('/api/createquestion', function (req, res) {
+    interview.createQuestion(
+        {
+            topic: req.body.topic,
+            question: req.body.question,
+            answer: req.body.answer,
+            code: req.body.code,
+            level: req.body.level,
+            timer: req.body.timer
+        },
+        function (result) {
+            // Send back the JSON
             res.json({ result });
         });
 });
