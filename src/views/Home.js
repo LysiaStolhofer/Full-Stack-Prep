@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
-import Highlight from "../components/Highlight";
+import UserChart from '../components/UserChart';
 import Loading from "../components/Loading";
 import { useAuth0 } from "../react-auth0-spa";
+import { MainBtns } from "../components";
 
 const Home = () => {
   const { loading, user } = useAuth0();
@@ -14,23 +15,14 @@ const Home = () => {
   console.log(user)
 
   return (
-    <Container className="mb-5">
+    <Container className="mx-auto">
 
-      <Row className="align-items-center Home-header mb-5 text-center text-md-left">
-        <Col md={2}>
-          <img
-            src={user && user.picture}
-            alt="Home"
-            className="rounded-circle img-fluid Home-picture mb-3 mb-md-0"
-          />
-        </Col>
-        <Col md>
-          <h2>{user && user.name}</h2>
-          <p className="lead text-muted">{user && user.email}</p>
-        </Col>
+      <Row>
+
+        <UserChart as={Col} />
+        <MainBtns as={Col} />
       </Row>
       <Row>
-        <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
       </Row>
       <div>Home-Page</div>
       <div>
