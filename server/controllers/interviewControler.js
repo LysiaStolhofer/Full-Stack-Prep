@@ -55,15 +55,9 @@ router.post('/api/createUser', function (req, res) {
         },
         function (result) {
             // Send back the ID of the new quote
-            res.json({ id: result.insertId });
+            res.json({ result });
         });
 });
-
-
-
-
-
-
 
 router.post('/api/db', function (req, res) {
     interview.insertNew(
@@ -77,8 +71,6 @@ router.post('/api/db', function (req, res) {
             res.json({ id: result.insertId });
         });
 });
-
-
 
 // Export routes for server.js to use.
 module.exports = router;
