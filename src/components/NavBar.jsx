@@ -43,15 +43,18 @@ const NavBar = (props) => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink
-                  tag={RouterNavLink}
-                  to="/"
-                  exact
-                  activeClassName="router-link-exact-active">
-                  Dashboard
+
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/"
+                    exact
+                    activeClassName="router-link-exact-active">
+                    Dashboard
                 </NavLink>
-              </NavItem>
+                </NavItem>
+              )}
               {isAuthenticated && (
                 <NavItem>
                   <NavLink
@@ -118,18 +121,6 @@ const NavBar = (props) => {
                     onClick={() => loginWithRedirect({})}
                   >
                     Log in
-                  </Button>
-                </NavItem>
-              )}
-              {!isAuthenticated && (
-                <NavItem>
-                  <Button
-                    id="SignUpBtn"
-                    color="primary"
-                    className="btn-margin"
-                    onClick={() => props.history.push('/SignUp')}
-                  >
-                    Sign Up
                   </Button>
                 </NavItem>
               )}
