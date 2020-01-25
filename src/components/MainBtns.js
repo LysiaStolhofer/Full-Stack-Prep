@@ -1,45 +1,85 @@
 import React from "react";
-import { Card, Row, Col, Accordion, Form } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
-const MainBtn = () => (
+const MainBtns = () => (
     <React.Fragment>
-        <Card bg="primary" text="white" style={{ width: '18rem' }}>
-            <Card.Header>Header</Card.Header>
-            <Card.Body>
-                <Card.Title>Primary Card Title</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk
-                    of the card's content.
-                </Card.Text>
-            </Card.Body>
-        </Card>
-        <br />
-        <Card bg="secondary" text="white" style={{ width: '18rem' }}>
-            <Card.Header>Header</Card.Header>
-            <Card.Body>
-                <Card.Title>Secondary Card Title</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk
-                    of the card's content.
-                </Card.Text>
-            </Card.Body>
-        </Card>
-        <br />
-        <Card bg="success" text="white" style={{ width: '18rem' }}>
-            <Card.Header>Header</Card.Header>
-            <Card.Body>
-                <Card.Title>Success Card Title</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk
-                    of the card's content.
-                </Card.Text>
-            </Card.Body>
-        </Card>
-        <br />
+
+
+        <ul>
+            <li>
+                <Link to="/Prep">
+                    <Button variant="success" size="lg">
+                        <FontAwesomeIcon icon={faCode} col={5} />
+                        Prep for Inteview
+                    </Button>
+                </Link>
+            </li>
+            <li>
+                <Link to="/Take">
+                    <Button variant="success" size="lg">
+                        <FontAwesomeIcon icon={faCode} col={5} />
+                        Take a Mock Interview
+                    </Button>
+                </Link>
+            </li>
+            <li>
+                <Link to="/Add">
+                    <Button variant="success" size="lg">
+                        <FontAwesomeIcon icon={faCode} col={5} />
+                        Add an Interview Question
+                    </Button>
+                </Link>
+            </li>
+        </ul>
+
+
+
+
+
+
+
+
+
+
+
+        <div>
+
+            <Link to="/Prep">
+
+                {' '}
+
+                <Card as={Button} bg="success" text="white" className="mx-auto" style={{ width: '18rem' }}>
+                    <Card.Title>
+                        <FontAwesomeIcon icon={faCode} col={5} /><br />
+                        Add Interview Question
+                </Card.Title>
+                </Card>
+            </Link>
+
+            <Link to="/Take">
+                <Card as={Button} bg="success" text="white" className="mx-auto text-center" style={{ width: '18rem' }}>
+                    <Card.Title>
+                        <FontAwesomeIcon icon={faCode} col={5} /><br />
+                        Add Interview Question
+                </Card.Title>
+                </Card>
+            </Link>
+
+            <Link to="/Add">
+                <Card as={Button} bg="success" text="white" className="mx-auto" style={{ width: '18rem' }}>
+                    <Card.Title>
+                        <FontAwesomeIcon icon={faCode} col={5} /><br />
+                        Add Interview Question
+                </Card.Title>
+                </Card>
+            </Link>
+
+        </div>
 
     </React.Fragment>
 );
 
-export default MainBtn;
+export default MainBtns;
