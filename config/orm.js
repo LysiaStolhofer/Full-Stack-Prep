@@ -94,7 +94,19 @@ const orm = {
 
     createNewUser: async function ({ firstname, lastname, email, picture }, cb) {
         try {
-            let queryString = 'INSERT INTO users ';
+
+            let queryString = 'SELECT * FROM users WHERE email = ';
+            queryString += '"' + email.toString();
+            queryString += '"';
+
+            const existcheck = await connection.query(
+                queryString,
+            );
+
+            // return the existing row from the user table if applicable.
+            if (existcheck.length > 0) { return cb(existcheck); }
+
+            queryString = 'INSERT INTO users ';
             queryString += '(first_name, last_name, email, picture) ';
             queryString += 'VALUES (';
             queryString += '"' + firstname.toString() + '", ';
@@ -129,15 +141,19 @@ const orm = {
             queryString += '(' + newUserID + ', 6, 2, false),';
             queryString += '(' + newUserID + ', 6, 3, false)';
 
-            console.log(queryString);
-
             const progress = await connection.query(
                 queryString,
             );
 
             console.log('User progress rows inserted: ' + progress.affectedRows);
 
-            return cb(result);
+            // return the new row from the user table.
+            queryString = 'SELECT * FROM users WHERE id = ' + newUserID;
+            const newuser = await connection.query(
+                queryString,
+            );
+
+            return cb(newuser);
         } catch (error) {
             return cb(error);
         }
@@ -149,8 +165,6 @@ const orm = {
             queryString += 'SET topic_mastered = true ';
             queryString += 'WHERE user_id = ' + user.toString();
             queryString += ' AND topic_id = ' + topic.toString();
-
-            console.log(queryString);
 
             const result = await connection.query(
                 queryString,
@@ -169,8 +183,6 @@ const orm = {
             queryString += '(SELECT id FROM users WHERE email = ';
             queryString += '"' + email.toString();
             queryString += '")';
-
-            console.log(queryString);
 
             const result = await connection.query(
                 queryString,
