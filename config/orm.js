@@ -92,6 +92,28 @@ const orm = {
         }
     },
 
+    createQuestion: async function ({ topic, question, answer, code, level, timer }, cb) {
+        try {
+            let queryString = 'INSERT INTO questions (question, answer, topic_id, level_id, timer, code) ';
+            queryString += 'VALUES (';
+            queryString += '"' + question.toString() + '", ';
+            queryString += '"' + answer.toString() + '", ';
+            queryString += topic.toString() + ', ';
+            queryString += level.toString() + ', ';
+            queryString += timer.toString() + ', ';
+            queryString += '"' + code.toString() + '")';
+
+            console.log(queryString);
+
+            const result = await connection.query(
+                queryString,
+            );
+            return cb(result);
+        } catch (error) {
+            return cb(error);
+        }
+    },
+
     createNewUser: async function ({ firstname, lastname, email, picture }, cb) {
         try {
 

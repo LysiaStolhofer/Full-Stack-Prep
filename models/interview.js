@@ -12,6 +12,11 @@ const interview = {
             cb(res);
         });
     },
+    createQuestion: function (topic, question, answer, code, level, timer, cb) {
+        orm.createQuestion(topic, question, answer, code, level, timer, function (res) {
+            cb(res);
+        });
+    },
     updateUserprogress: function (user, topic, cb) {
         orm.updateUserprogress(user, topic, function (res) {
             cb(res);
