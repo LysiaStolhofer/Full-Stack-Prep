@@ -1,0 +1,13 @@
+.Footer {
+    font-size: 13px; 
+    padding-bottom: 15px; 
+    size: 30px; 
+    font-family: 'Raleway', sans-serif;
+}
+
+footer {
+    background: #eff1f5;
+    min-height: 0px;
+    text-align: center;
+    padding: 12px;
+}

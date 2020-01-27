@@ -1,0 +1,27 @@
+
+.text-white {
+    color: #fff!important;
+    font-family: 'Raleway', sans-serif;
+}
+
+.bg-dark.text-white {
+    height: 400px; 
+    width: 1080px;
+}
+
+#size {
+    border-radius: 6px;
+    height: 290px; 
+    width: 280px !important; 
+    margin: 12px; 
+    margin-left: 20px; 
+}
+
+#margin {
+    border-radius: 10px; 
+    box-shadow: 5px 5px 18px 1px #888888;
+}
+
+div.card-body{
+    padding-top: 12px; 
+}

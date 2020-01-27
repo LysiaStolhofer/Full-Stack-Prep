@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter, useLocation } from 'react-router-dom';
+import './NavBar.css'
 
 import {
   Collapse,
@@ -30,14 +31,16 @@ const NavBar = (props) => {
       returnTo: window.location.origin
     });
 
-  // let location = useLocation();
-  // if (location.pathname === "/") return null;
+  // This will make the navbar disapper on the login page
+  let location = useLocation();
+  if (location.pathname === "/Landing") return null;
 
   return (
     <div className="nav-container">
       <Navbar color="light" light expand="md">
         <Container>
           <img
+          class="pic"
             src="/FullStackPrep.png"
             alt="-full-logo"
             style={{ height: "50px" }}
@@ -114,7 +117,7 @@ const NavBar = (props) => {
               )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
-              {!isAuthenticated && (
+              {/* {!isAuthenticated && (
                 <NavItem>
                   <Button
                     id="qsLoginBtn"
@@ -125,7 +128,7 @@ const NavBar = (props) => {
                     Log in
                   </Button>
                 </NavItem>
-              )}
+              )} */}
               {isAuthenticated && (
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret id="HomeDropDown">
@@ -217,4 +220,4 @@ const NavBar = (props) => {
   );
 };
 
-export default withRouter(NavBar);
+export default withRouter(NavBar); 
