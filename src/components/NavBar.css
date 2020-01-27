@@ -1,0 +1,22 @@
+a {
+    font-family: 'Raleway', sans-serif;
+}
+
+.mr-auto.navbar-nav {
+    color: black; 
+}
+
+.navbar-nav .nav-link {
+    color: #041433;
+    padding: 0 0 .1rem 0;
+
+}
+
+.navbar .router-link-exact-active {
+    color: #041433;
+    border-bottom: 3px solid green;
+}
+
+.pic{
+    padding-right: 20px; 
+}

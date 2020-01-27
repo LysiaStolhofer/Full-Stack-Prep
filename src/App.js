@@ -3,7 +3,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import { Container } from "reactstrap";
 
 // import needed Components 
-import { NavBar, Footer, Loading, PrivateRoute } from "./components";
+import { NavBar, Footer} from "./components";
 
 // import needed pages (views)
 import Routes from "./routes";
