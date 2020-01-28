@@ -41,7 +41,8 @@ const routes = require('./controllers/interviewControler');
 app.use(routes);
 
 app.use(morgan("dev"));
-app.use(express.static(join(__dirname, "build")));
+
+app.use(express.static(join(__dirname, '..', "build")));
 
 // Define an endpoint that must be called with an access token
 app.get("/api/external", checkJwt, (req, res) => {
