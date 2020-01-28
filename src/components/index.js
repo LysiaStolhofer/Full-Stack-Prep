@@ -8,3 +8,4 @@ export { default as QuestionCard } from './QuestionCard';
 export { default as UserStats } from './UserStats';
 export { default as UserChart } from './UserChart';
 export { default as Landing } from './Landing';
+export { default as AddForm } from './AddForm';
