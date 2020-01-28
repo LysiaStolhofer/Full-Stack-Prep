@@ -1,0 +1,38 @@
+#font {
+    font-family: 'Raleway', sans-serif;
+}
+#font2 {
+    font-family: 'Raleway', sans-serif;
+    background: rgba(255, 255, 255, 0.562);
+    padding: 10px; 
+    border-radius: 6px; 
+}
+#btn {
+    margin-bottom: 4px; 
+    background-color: #2b3436ce; 
+    font-size: 14px;
+    padding: .275rem .75rem;
+}
+#btn2 {
+    margin-bottom: 4px; 
+    background-color: #cc2020d7; 
+    border-color: #cc2020d7;
+    font-size: 14px;
+    margin-left: 10px; 
+    padding: .275rem .75rem;
+}
+#place{
+    font-size: 16px; 
+}
+div.Form-Group {
+    padding: 10px; 
+}
+#yellow {
+    color:rgb(216, 173, 30); 
+}
+#orange {
+    color: rgb(228, 114, 38);
+}
+#red {
+    color: rgb(228, 38, 38);
+}

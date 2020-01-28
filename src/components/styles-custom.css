@@ -1,0 +1,19 @@
+input[type="question"],
+input[type="answer"],
+input[type="code"],
+textarea,
+select {
+  width: 400px;
+}
+
+label {
+  margin-top: 1rem;
+}
+
+label.checkbox {
+  font-weight: normal;
+}
+
+button[type="submit"] {
+  margin-top: 1rem;
+}
