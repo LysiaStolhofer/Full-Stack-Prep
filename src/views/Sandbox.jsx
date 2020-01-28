@@ -17,7 +17,7 @@ const Sandbox = () => {
             <div>Add an interview question</div>
             <div>
                 <h2>New Add</h2>
-                <AddForm />
+                {/* <AddForm /> */}
                 <h2> Question Card</h2>
                 <QuestionCard />
                 <hr />

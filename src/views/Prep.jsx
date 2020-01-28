@@ -40,15 +40,24 @@ const Prep = () => {
 
       <Row>
         <Col>
-          <Spinner animation="border" size="xl" variant="success" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
+          <QuestionCard />
+          <QuestionCard as={Col} />
+          <QuestionCard />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+          <QuestionCard />
         </Col>
 
         <Col>
           <QuestionCard />
         </Col>
 
+        <Col>
+          <QuestionCard />
+        </Col>
 
       </Row>
 
