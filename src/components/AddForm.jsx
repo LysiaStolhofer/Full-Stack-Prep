@@ -3,6 +3,7 @@ import { Formik, Form, useField } from "formik";
 import { Col, Button } from "reactstrap";
 import * as Yup from "yup";
 import styled from '@emotion/styled';
+import './AddForm.css';
 import "./styles-custom.css";
 
 
@@ -60,9 +61,6 @@ const StyledLabel = styled.label`
   margin-top: 1rem;
 `;
 
-
-
-
 const AddForm = () => {
     return (
         <React.Fragment>
@@ -96,7 +94,7 @@ const AddForm = () => {
                     }, 400);
                 }}>
 
-                <Form>
+                <Form id="font2">
                     <Form.Row>
                         <Col>
                             <MySelect label="Topic" name="topic">
@@ -128,7 +126,7 @@ const AddForm = () => {
                         </Col>
                     </Form.Row>
 
-                    <Form.Row>
+                    <Form.Row id="place">
                         <Col>
                             <MyTextInput
                                 label="Enter the Question you want to add."
@@ -164,4 +162,5 @@ const AddForm = () => {
         </React.Fragment>
     );
 };
+
 export default AddForm;

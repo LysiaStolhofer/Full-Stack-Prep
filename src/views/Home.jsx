@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
 import UserChart from '../components/UserChart';
 import Loading from "../components/Loading";
 import { useAuth0 } from "../react-auth0-spa";

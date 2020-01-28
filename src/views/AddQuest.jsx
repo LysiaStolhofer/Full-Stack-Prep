@@ -1,14 +1,9 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
-import { Col, Button } from "reactstrap";
-import './Add.css';
-
-import React from "react";
-import ReactDOM from "react-dom";
+import styled from "react-emotion";
 import { Formik, Form, useField } from "formik";
 import * as Yup from "yup";
-import styled from "@emotion/styled";
 import "./styles.css";
+import './Add.css';
 import "./styles-custom.css";
 
 const MyTextInput = ({ label, ...props }) => {
@@ -80,7 +75,7 @@ const MySelect = ({ label, ...props }) => {
 };
 
 // And now we can use these
-const SignupForm = () => {
+const AddQuest = () => {
   return (
     <>
       <h1>Subscribe!</h1>
