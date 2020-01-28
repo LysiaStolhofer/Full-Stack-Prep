@@ -1,10 +1,9 @@
 import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
-import { Container } from "reactstrap";
-import Landing from "./components/Landing";
+import { Route, Switch } from "react-router-dom";
+
 
 // import needed Components
-import { NavBar, Footer, Loading, PrivateRoute } from "./components";
+import { PrivateRoute } from "./components";
 
 // import needed pages (views)
 import Home from "./views/Home";
@@ -13,10 +12,7 @@ import Sandbox from "./views/Sandbox";
 import Add from "./views/Add";
 import Take from "./views/Take";
 import Prep from "./views/Prep";
-
-// import authorization
-import { useAuth0 } from "./react-auth0-spa";
-import history from "./utils/history";
+import Landing from "./components/Landing";
 
 // styles
 import "./assets/css/App.css";

@@ -29,3 +29,12 @@
   left: 0;
   right: 0;
 }
+
+body {
+  background-image: url("../images/background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #faf6f6;
+}

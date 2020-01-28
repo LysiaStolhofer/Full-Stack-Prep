@@ -1,19 +1,60 @@
 import React from "react";
+import { Form, Col, Row, Spinner } from "react-bootstrap";
 import { BrowserRouter as Route, Link } from "react-router-dom";
-import Home from "./Home";
+import { QuestionCard } from "../components";
 
 const Prep = () => {
   return (
     <React.Fragment>
-      <div>Prep for an interview</div>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Done - back to Dashboard</Link>
-          </li>
-        </ul>
-        <Route exact path="/" component={Home} />
-      </div>
+      <h2 className="text-center">Prep for Your Interview</h2>
+
+      <Form>
+        <Form.Row className="justify-content-center">
+          <Form.Group as={Col} xs={4} md={4} controlId="formInputTopic">
+            <Form.Label>Select Full Stack Topic</Form.Label>
+            <Form.Control as="select">
+              <option>Frontend Fundamentals</option>
+              <option>Javascript Fundamentals</option>
+              <option>Repository Fundamentals</option>
+              <option>Database Fundamentals</option>
+              <option>JS Server Fundamentals</option>
+              <option>Framework Fundamentals</option>
+              <option>Mixed Topics</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group as={Col} xs={4} md={4} controlId="formInputLevel">
+            <Form.Label>Select Question Difficulty</Form.Label>
+            <Form.Control as="select">
+              <option>Entry</option>
+              <option>Junior</option>
+              <option>Mid-Level</option>
+            </Form.Control>
+          </Form.Group>
+        </Form.Row>
+      </Form>
+
+      <hr />
+
+      {/* THIS IS WHERE THE GAME QUESTIONS SHOULD LOAD UP */}
+
+      <Row>
+        <Col>
+          <Spinner animation="border" size="xl" variant="success" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </Col>
+
+        <Col>
+          <QuestionCard />
+        </Col>
+
+
+      </Row>
+
+
+
+
     </React.Fragment>
   );
 };
