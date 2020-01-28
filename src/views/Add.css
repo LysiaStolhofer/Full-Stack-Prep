@@ -5,12 +5,13 @@
     font-family: 'Raleway', sans-serif;
     background: rgba(255, 255, 255, 0.562);
     padding: 10px; 
-    border-radius: 7px;
+    border-radius: 6px; 
 }
 #btn {
     margin-bottom: 4px; 
     background-color: #2b3436ce; 
     font-size: 14px;
+    padding: .275rem .75rem;
 }
 #btn2 {
     margin-bottom: 4px; 
@@ -18,6 +19,7 @@
     border-color: #cc2020d7;
     font-size: 14px;
     margin-left: 10px; 
+    padding: .275rem .75rem;
 }
 #place{
     font-size: 16px; 

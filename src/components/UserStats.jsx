@@ -12,29 +12,45 @@ const UserStats = () => {
     }
     console.log(user)
 
+    let opts = {
+        email: user.sub
+    };
+
+    fetch('api/selectUserprogress', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(opts)
+    }).then((response) => response.json())
+        .then((responseJson) => {
+            console.log(responseJson.result);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+
     return (
         <React.Fragment>
             <div class="margin">
                 Frontend Fundamentals
                 <ProgressBar animated variant="success" now={45} label="45%" />
-                </div>
-                <div class="margin">
+            </div>
+            <div class="margin">
                 JavaScript Fundamentals
                 <ProgressBar animated variant="info" now={76} label="76%" />
-                </div>
-                <div class="margin">
+            </div>
+            <div class="margin">
                 Repository Fundamentals
                 <ProgressBar animated variant="warning" now={82} label="82%" />
-                </div>
-                <div class="margin">
+            </div>
+            <div class="margin">
                 Database Fundamentals
                 <ProgressBar animated variant="danger" now={64} label="64%" />
-                </div>
-                <div class="margin">
+            </div>
+            <div class="margin">
                 JS Server Fundamentals
                 <ProgressBar animated variant="primary" now={90} label="90%" />
-                </div>
-                <div class="margin2">
+            </div>
+            <div class="margin2">
                 Framework Fundamentals
                 <ProgressBar animated variant="secondary" now={72} label="72%" />
             </div>
