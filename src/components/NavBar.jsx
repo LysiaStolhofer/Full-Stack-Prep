@@ -94,7 +94,7 @@ const NavBar = (props) => {
                 </NavLink>
                 </NavItem>
               )}
-              {isAuthenticated && (
+              {/* {isAuthenticated && (
                 <NavItem>
                   <NavLink
                     tag={RouterNavLink}
@@ -115,7 +115,7 @@ const NavBar = (props) => {
                     API
                 </NavLink>
                 </NavItem>
-              )}
+              )} */}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {/* {!isAuthenticated && (
