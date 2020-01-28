@@ -12,7 +12,7 @@ _YOUR dream job is just one "PREP" away!_
 - MySQL
 - JavaScript 
 - Deployed on Heroku 
-- 
+- @emotion
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ### Full-Stack-Prep Structure :card_index:
