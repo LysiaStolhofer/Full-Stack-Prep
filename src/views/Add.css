@@ -5,6 +5,7 @@
     font-family: 'Raleway', sans-serif;
     background: rgba(255, 255, 255, 0.562);
     padding: 10px; 
+    border-radius: 7px;
 }
 #btn {
     margin-bottom: 4px; 
