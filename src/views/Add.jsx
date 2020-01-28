@@ -6,9 +6,9 @@ import './Add.css'
 const Add = () => {
   return (
     <React.Fragment>
-      <h2 id="font">Add an interview question</h2>
+      <h2 className="text-center" id="font">Add an interview question</h2>
       <hr />
-      <Form id="font">
+      <Form id="font2">
         <Form.Row>
           <Form.Group as={Col} controlId="formInputTopic">
             <Form.Label>Select Full Stack Topic</Form.Label>
@@ -60,6 +60,9 @@ const Add = () => {
           </Form.Group> */}
         <Button id="btn" variant="primary" type="submit">
           Submit
+          </Button>
+          <Button id="btn2" variant="primary" type="Cancel">
+          Cancel
           </Button>
       </Form>
     </React.Fragment>
