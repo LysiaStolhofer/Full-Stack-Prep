@@ -1,0 +1,22 @@
+#font {
+    font-family: 'Raleway', sans-serif;
+}
+#btn {
+    margin-bottom: 4px; 
+    background-color: #2b3436; 
+}
+#place{
+    font-size: 16px; 
+}
+div.Form-Group {
+    padding: 10px; 
+}
+#yellow {
+    color:rgb(216, 173, 30); 
+}
+#orange {
+    color: rgb(228, 114, 38);
+}
+#red {
+    color: rgb(228, 38, 38);
+}
