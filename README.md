@@ -20,7 +20,7 @@ _YOUR dream job is just one "PREP" away!_
 
 
 -------------------------------------------------------------------------------------------------------------------------------------
-:earth_americas: Coming soon!
+:earth_americas: https://full-stack-prep.herokuapp.com/
 
 
 

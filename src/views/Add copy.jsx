@@ -65,7 +65,6 @@ const Add = () => {
           Cancel
           </Button>
       </Form>
-      <Route exact path="/" component={Home} />
     </React.Fragment>
   );
 };
