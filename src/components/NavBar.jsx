@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter, useLocation } from 'react-router-dom';
-import './NavBar.css'
+import './NavBar.css'
+
 
 import {
   Collapse,
@@ -40,7 +41,7 @@ const NavBar = (props) => {
       <Navbar color="light" light expand="md">
         <Container>
           <img
-          class="pic"
+            class="pic"
             src="/FullStackPrep.png"
             alt="-full-logo"
             style={{ height: "50px" }}

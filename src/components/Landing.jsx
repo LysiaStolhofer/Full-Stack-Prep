@@ -1,51 +1,46 @@
 import React from 'react';
-import { Row, Col, Container, Image } from "react-bootstrap";
-import { Nav, NavItem, Button } from "reactstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
+import { Button, Nav, NavItem } from "reactstrap";
 import { useAuth0 } from "../react-auth0-spa";
 
 const Landing = (props) => {
     const { isAuthenticated, loginWithRedirect } = useAuth0();
 
     return (
-        <Container className="mx-auto">
-            <Row>
-                <Col xs={6} md={4}>
-                    <Image src="./FullStackPrep.png" fluid />
-                </Col>
-            </Row>
+        <Container>
 
-            <Row className="mx-auto">
-                <Col>
+            <Row className="justify-content-around">
+                <Col xs={6} md={5}>
                     <Row>
-                        YOUR dream job is just one "PREP" away
-                </Row>
-                    <Row>
-
+                        <Image src="./FullStackPrep.png" fluid />
                     </Row>
-
-                    {!isAuthenticated && (
-                        <Nav className="navbar">
-                            <NavItem>
-                                <Button
-                                    id="qsLoginBtn"
-                                    color="success"
-                                    block
-                                    onClick={() => loginWithRedirect({})}
-                                >
-                                    Click Here to get Started
+                    <Row>
+                        <h2>YOUR dream job is just one "PREP" away</h2>
+                    </Row>
+                    <Row>
+                        {!isAuthenticated && (
+                            <Nav className="navbar" style={{ background: "none", boxShadow: "none" }}>
+                                <NavItem className="mx-auto">
+                                    <Button
+                                        id="qsLoginBtn"
+                                        color="success"
+                                        block
+                                        onClick={() => loginWithRedirect({})}
+                                    >
+                                        Click Here to get Started
                         </Button>
-                            </NavItem>
-                        </Nav>
-                    )}
+                                </NavItem>
+                            </Nav>
+                        )}
+                    </Row>
                 </Col>
 
                 <Col>
-
+                    <Image src="./landing.png" style={{ width: "100%" }} />
                 </Col>
-
             </Row>
-        </Container>
+        </Container >
     );
 };
 

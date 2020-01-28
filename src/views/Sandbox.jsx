@@ -23,9 +23,7 @@ const Sandbox = () => {
                 <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
                 <br />
                 <hr />
-                <h2>Main Buttons</h2>
 
-                <hr />
 
             </div>
         </React.Fragment>
