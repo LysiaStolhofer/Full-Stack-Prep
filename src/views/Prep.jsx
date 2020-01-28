@@ -38,31 +38,23 @@ const Prep = () => {
 
       {/* THIS IS WHERE THE GAME QUESTIONS SHOULD LOAD UP */}
 
-      <Row>
-        <Col>
-          <QuestionCard />
-          <QuestionCard as={Col} />
-          <QuestionCard />
-        </Col>
+      <Row className="py-1">
+        <Col xs={6} md={4}><QuestionCard /></Col>
+        <Col xs={6} md={4}><QuestionCard /></Col>
+        <Col xs={6} md={4}><QuestionCard /></Col>
       </Row>
 
-      <Row>
-        <Col>
-          <QuestionCard />
-        </Col>
-
-        <Col>
-          <QuestionCard />
-        </Col>
-
-        <Col>
-          <QuestionCard />
-        </Col>
-
+      <Row className="py-1">
+        <Col xs={6} md={4}><QuestionCard /></Col>
+        <Col xs={6} md={4}><QuestionCard /></Col>
+        <Col xs={6} md={4}><QuestionCard /></Col>
       </Row>
 
-
-
+      <Row className="py-1">
+        <Col xs={6} md={4}><QuestionCard /></Col>
+        <Col xs={6} md={4}><QuestionCard /></Col>
+        <Col xs={6} md={4}><QuestionCard /></Col>
+      </Row>
 
     </React.Fragment>
   );

@@ -7,7 +7,7 @@ const QuestionCard = () => (
 
     <React.Fragment>
 
-        <Card border="secondary" style={{ width: '20rem' }}>
+        <Card border="secondary" var>
             <Card.Header>
                 <Row>
                     <Col sm={8}>Topic - 1 | Level - 2</Col>
