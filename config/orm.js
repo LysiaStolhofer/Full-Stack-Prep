@@ -199,8 +199,10 @@ const orm = {
 
     selectUserprogress: async function ({ email }, cb) {
         try {
-            let queryString = 'SELECT topic_id, level_id, topic_mastered ';
+            let queryString = 'SELECT topic_id, topic, level_id, topic_description, topic_mastered ';
             queryString += 'FROM userprogress ';
+            queryString += 'join topics on (topics.id = topic_id) ';
+            queryString += 'join levels on (levels.id = level_id) ';
             queryString += 'WHERE user_id IN ';
             queryString += '(SELECT id FROM users WHERE email = ';
             queryString += '"' + email.toString();

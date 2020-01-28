@@ -24,7 +24,7 @@ router.get('/api/levelQuestions', function (req, res) {
         });
 });
 
-router.get('/api/selectUserprogress', function (req, res) {
+router.post('/api/selectUserprogress', function (req, res) {
     interview.selectUserprogress(
         {
             email: req.body.email
