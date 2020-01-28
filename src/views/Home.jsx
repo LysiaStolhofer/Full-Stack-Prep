@@ -16,6 +16,7 @@ const Home = () => {
   return (
     <Container className="mx-auto">
       <Row>
+        
         <UserChart as={Col} />
       </Row>    
     </Container>

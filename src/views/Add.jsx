@@ -1,8 +1,11 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import { Col, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
+import Home from './Home'; 
 import './Add.css'
+
+
 const Add = () => {
   return (
     <React.Fragment>
@@ -65,6 +68,7 @@ const Add = () => {
           Cancel
           </Button>
       </Form>
+      <Route exact path="/" component={Home} />
     </React.Fragment>
   );
 };

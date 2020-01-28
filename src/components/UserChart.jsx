@@ -6,6 +6,7 @@ import UserStats from "./UserStats";
 import './UserChart.css'
 
 const UserChart = () => {
+
     const { loading, user } = useAuth0();
 
     if (loading || !user) {
@@ -39,8 +40,8 @@ const UserChart = () => {
                 <Card.Body>
                     <Row className="align-items-center">
                         <Card.Img id="size" variant="top" src={user && user.picture} />
-
                         <Col>
+        	            
                             <UserStats />
                         </Col>
                     </Row>
