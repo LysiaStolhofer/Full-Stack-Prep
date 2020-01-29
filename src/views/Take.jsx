@@ -6,16 +6,16 @@ import { QuestionCard } from "../components";
 const Take = () => {
   return (
     <React.Fragment>
-      <h2 className="text-center">Prep for Your Interview</h2>
+      <h2 id="style" className="text-center">Prep for Your Interview</h2>
 
-      <Form>
+      <Form id="style">
         <Form.Row className="justify-content-center">
           <Form.Group as={Col} xs={4} md={4} controlId="formInputLevel">
             <Form.Label>Select Question Difficulty</Form.Label>
             <Form.Control as="select">
-              <option>Entry</option>
-              <option>Junior</option>
-              <option>Mid-Level</option>
+              <option id="yellow">Entry</option>
+              <option id="orange">Junior</option>
+              <option id="red">Mid-Level</option>
             </Form.Control>
           </Form.Group>
         </Form.Row>

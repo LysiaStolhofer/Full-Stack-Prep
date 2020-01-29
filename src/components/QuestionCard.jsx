@@ -2,31 +2,32 @@ import React from "react";
 import { Card, Row, Col, Accordion, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import './QuestionCard.css';
 
 const QuestionCard = () => (
 
     <React.Fragment>
 
-        <Card border="secondary" var>
+        <Card id="style" border="secondary" var>
             <Card.Header>
-                <Row>
+                <Row id="small3">
                     <Col sm={8}>Topic - 1 | Level - 2</Col>
                     <Col sm={4}>60</Col>
                 </Row>
             </Card.Header>
             <Card.Body>
-                <Card.Title>Is react a framework or a library?</Card.Title>
-                <Card.Text>
+                <Card.Title id= "small">Is react a framework or a library?</Card.Title>
+                {/* <Card.Text>
                     <code>
                         npx create-react-app my-app <br />
                         cd my-app <br />
                         npm start <br />
                     </code>
-                </Card.Text>
+                </Card.Text> */}
             </Card.Body>
             <Accordion>
-                <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                <Card id="small">
+                    <Accordion.Toggle id="answer" as={Card.Header} eventKey="1">
                         Show the Answer
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
@@ -36,7 +37,7 @@ const QuestionCard = () => (
             </Accordion>
             <Card.Footer className="text-muted" >
                 <Form as={Row} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <Form.Label>How Did You Do?</Form.Label>
+                    <Form.Label id="small2" >How Did You Do?</Form.Label>
                     <FontAwesomeIcon icon={faThumbsUp} color="green" />
                     <Form.Check label="Pos" type="radio" id="quest-pos" />
                     <FontAwesomeIcon icon={faThumbsDown} color="red" />

@@ -1,0 +1,23 @@
+#style {
+    border-radius: 7px; 
+    margin-bottom: 10px; 
+    font-family: 'Raleway', sans-serif;
+}
+
+#small {
+    font-size: 14px; 
+}
+
+#small2 {
+    font-size: 14px; 
+    margin-left: 15px; 
+}
+
+#answer {
+    color: green;
+}
+
+#small3 {
+    color: rgba(255, 0, 0, 0.568); 
+    font-size: 12px; 
+}
